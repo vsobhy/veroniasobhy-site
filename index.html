@@ -7,7 +7,7 @@
 <meta name="description" content="Veronia Sobhy: product, partnerships, and growth operator across entertainment, brands, and tech. Builder and AI practitioner in Los Angeles.">
 <meta property="og:title" content="Veronia Sobhy">
 <meta property="og:description" content="I build the product and the growth behind it.">
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 72 66'%3E%3Cg fill='%23C6291D'%3E%3Cpath d='M20.5 18.6 49.6 11.2 49.6 20.4 20.5 27.8 Z'/%3E%3Crect x='17.6' y='19.2' width='4.2' height='30'/%3E%3Crect x='46.7' y='11.8' width='4.2' height='30'/%3E%3Cellipse cx='12' cy='50.5' rx='8.6' ry='7' transform='rotate(-14 12 50.5)'/%3E%3Cellipse cx='41' cy='43' rx='8.6' ry='7' transform='rotate(-14 41 43)'/%3E%3C/g%3E%3Cg fill='%23A6BC86'%3E%3Cellipse cx='58.5' cy='9.5' rx='9' ry='4.1' transform='rotate(-24 58.5 9.5)'/%3E%3Cellipse cx='59.5' cy='19.5' rx='9.6' ry='4.3' transform='rotate(24 59.5 19.5)'/%3E%3Cellipse cx='55' cy='15' rx='7.4' ry='3.4' transform='rotate(4 55 15)'/%3E%3C/g%3E%3C/svg%3E"><text y='.9em' font-size='90'>✦</text></svg>">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 72 66'%3E%3Cg fill='%23C6291D'%3E%3Cpath d='M20.5 18.6 49.6 11.2 49.6 20.4 20.5 27.8 Z'/%3E%3Crect x='17.6' y='19.2' width='4.2' height='30'/%3E%3Crect x='46.7' y='11.8' width='4.2' height='30'/%3E%3Cellipse cx='12' cy='50.5' rx='8.6' ry='7' transform='rotate(-14 12 50.5)'/%3E%3Cellipse cx='41' cy='43' rx='8.6' ry='7' transform='rotate(-14 41 43)'/%3E%3C/g%3E%3Cg fill='%23A6BC86'%3E%3Cellipse cx='58.5' cy='9.5' rx='9' ry='4.1' transform='rotate(-24 58.5 9.5)'/%3E%3Cellipse cx='59.5' cy='19.5' rx='9.6' ry='4.3' transform='rotate(24 59.5 19.5)'/%3E%3Cellipse cx='55' cy='15' rx='7.4' ry='3.4' transform='rotate(4 55 15)'/%3E%3C/g%3E%3C/svg%3E">
 </head>
 <body>
 <style>
@@ -39,7 +39,14 @@ a{color:inherit}
 .nav ul{display:flex;gap:26px;list-style:none;margin:0;padding:0;font-family:var(--serif);font-size:14px;letter-spacing:.04em}
 .nav a{text-decoration:none;color:var(--ink2);transition:color .15s}
 .nav a:hover{color:var(--tomato)}
-@media(max-width:660px){.nav ul{display:none}}
+@media(max-width:660px){
+  .nav{flex-wrap:wrap;gap:8px;padding:12px 0}
+  .nav ul{order:3;width:100%;gap:0;justify-content:space-between;flex-wrap:nowrap;
+    overflow-x:auto;-webkit-overflow-scrolling:touch;padding-top:4px;font-size:13px}
+  .nav ul li{flex:0 0 auto}
+  .nav ul a{display:block;padding:6px 10px 4px;white-space:nowrap}
+  .brand{font-size:17px}
+}
 
 /* hero */
 .hero{position:relative;display:block;padding:56px 0 50px;border-bottom:2px solid var(--ink)}
