@@ -36,17 +36,9 @@ a{color:inherit}
 .navbar{position:sticky;top:0;z-index:60;background:rgba(244,235,211,.94);backdrop-filter:saturate(150%) blur(8px);-webkit-backdrop-filter:saturate(150%) blur(8px);border-bottom:2px solid var(--ink)}
 .nav{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:16px 0}
 .brand{font-family:var(--disp);font-weight:800;font-size:19px;text-transform:uppercase;letter-spacing:-.01em;display:flex;align-items:center;gap:9px}
-.nav ul{display:flex;gap:26px;list-style:none;margin:0;padding:0;font-family:var(--serif);font-size:14px;letter-spacing:.04em}
 .nav a{text-decoration:none;color:var(--ink2);transition:color .15s}
 .nav a:hover{color:var(--tomato)}
-@media(max-width:660px){
-  .nav{flex-wrap:wrap;gap:8px;padding:12px 0}
-  .nav ul{order:3;width:100%;gap:0;justify-content:space-between;flex-wrap:nowrap;
-    overflow-x:auto;-webkit-overflow-scrolling:touch;padding-top:4px;font-size:13px}
-  .nav ul li{flex:0 0 auto}
-  .nav ul a{display:block;padding:6px 10px 4px;white-space:nowrap}
-  .brand{font-size:17px}
-}
+
 
 /* hero */
 .hero{position:relative;display:block;padding:56px 0 50px;border-bottom:2px solid var(--ink)}
@@ -160,15 +152,21 @@ footer{padding:24px 0 44px;color:var(--faint);font-family:var(--serif);font-size
       <svg class="mark" width="30" height="28" viewBox="0 0 72 66" aria-hidden="true"><g fill="#C6291D"><path d="M20.5 18.6 49.6 11.2 49.6 20.4 20.5 27.8 Z"/><rect x="17.6" y="19.2" width="4.2" height="30"/><rect x="46.7" y="11.8" width="4.2" height="30"/><ellipse cx="12" cy="50.5" rx="8.6" ry="7" transform="rotate(-14 12 50.5)"/><ellipse cx="41" cy="43" rx="8.6" ry="7" transform="rotate(-14 41 43)"/></g><g fill="#A6BC86"><ellipse cx="58.5" cy="9.5" rx="9" ry="4.1" transform="rotate(-24 58.5 9.5)"/><ellipse cx="59.5" cy="19.5" rx="9.6" ry="4.3" transform="rotate(24 59.5 19.5)"/><ellipse cx="55" cy="15" rx="7.4" ry="3.4" transform="rotate(4 55 15)"/></g></svg>
       Veronia&nbsp;Sobhy
     </div>
-    <ul>
-      <li><a href="#work">Work</a></li>
-      <li><a href="#experience">Experience</a></li>
-      <li><a href="#skills">Skills</a></li>
-      <li><a href="#mission">Mission</a></li>
-      <li><a href="#contact">Contact</a></li>
-    </ul>
+      <button class="menubtn" id="menubtn" aria-label="Open menu" aria-expanded="false"><span></span><span></span><span></span></button>
   </nav>
   </div></div>
+
+<div class="scrim" id="scrim"></div>
+<aside class="drawer" id="drawer" aria-hidden="true">
+  <button class="drawerx" id="drawerx" aria-label="Close menu">&times;</button>
+  <nav><ul>
+    <li><a href="#work">Work</a></li>
+    <li><a href="#experience">Experience</a></li>
+    <li><a href="#skills">Skills</a></li>
+    <li><a href="#mission">Mission</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul></nav>
+</aside>
 
 <div class="wrap">
 
@@ -296,7 +294,7 @@ footer{padding:24px 0 44px;color:var(--faint);font-family:var(--serif);font-size
       <div class="eyebrow">What drives it</div>
       <h2>Reality check.</h2>
       <p><b>I am a musician, producer, and composer myself</b>, so naturally, this is personal. Being an artist today means being a <b>brand</b>: identity, marketing, exposure, etc. It's a second full time job, and it is not the one any of us signed up for.</p>
-      <p>I use AI to hand that grind back to the machine, so creators can outsource the entrepreneur work and stay on the part they signed up for, <b>their craft</b>. It is the same instinct I bring to any team: spot the gap between the work and the business, and close it with the right build. <b>From product to strategy to growth.</b></p>
+      <p>I use AI to hand that grind back to the machine, so creators can outsource the entrepreneur work and stay on the part they signed up for, <b>their craft</b>. It is the same instinct I bring to any team: spot the gap between the work and the business, and close it with the right build.</p>
     </div>
   </section>
 
@@ -321,5 +319,22 @@ var vp=document.querySelector('.pframe img');
 if(vp){ vp.addEventListener('error',function(){ this.remove(); }); if(vp.complete && vp.naturalWidth===0){ vp.remove(); } }
 </script>
 
+
+<script>
+(function(){
+  var b=document.getElementById('menubtn'), d=document.getElementById('drawer'),
+      s=document.getElementById('scrim'), x=document.getElementById('drawerx');
+  function set(open){
+    d.classList.toggle('open',open); s.classList.toggle('open',open);
+    b.setAttribute('aria-expanded',open); d.setAttribute('aria-hidden',!open);
+    document.body.style.overflow = open ? 'hidden' : '';
+  }
+  b.addEventListener('click',function(){ set(!d.classList.contains('open')); });
+  x.addEventListener('click',function(){ set(false); });
+  s.addEventListener('click',function(){ set(false); });
+  d.addEventListener('click',function(e){ if(e.target.tagName==='A') set(false); });
+  document.addEventListener('keydown',function(e){ if(e.key==='Escape') set(false); });
+})();
+</script>
 </body>
 </html>
