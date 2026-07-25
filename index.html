@@ -35,7 +35,34 @@ a{color:inherit}
 /* nav */
 .navbar{position:sticky;top:0;z-index:60;background:rgba(244,235,211,.94);backdrop-filter:saturate(150%) blur(8px);-webkit-backdrop-filter:saturate(150%) blur(8px);border-bottom:2px solid var(--ink)}
 .nav{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:16px 0}
-.brand{font-family:var(--disp);font-weight:800;font-size:19px;text-transform:uppercase;letter-spacing:-.01em;display:flex;align-items:center;gap:9px}
+
+  /* hamburger button */
+  .menubtn{display:flex;flex-direction:column;justify-content:center;gap:5px;width:44px;height:38px;
+    padding:0 9px;background:none;border:2px solid var(--ink);border-radius:4px;cursor:pointer;flex:none}
+  .menubtn span{display:block;height:2.5px;background:var(--ink);border-radius:2px;transition:.22s}
+  .menubtn[aria-expanded="true"] span:nth-child(1){transform:translateY(7.5px) rotate(45deg)}
+  .menubtn[aria-expanded="true"] span:nth-child(2){opacity:0}
+  .menubtn[aria-expanded="true"] span:nth-child(3){transform:translateY(-7.5px) rotate(-45deg)}
+  /* side drawer */
+  .scrim{position:fixed;inset:0;z-index:70;background:rgba(33,30,22,.45);opacity:0;pointer-events:none;transition:.25s}
+  .scrim.open{opacity:1;pointer-events:auto}
+  .drawer{position:fixed;top:0;right:0;bottom:0;z-index:80;width:min(310px,82vw);background:var(--panel);
+    border-left:2px solid var(--ink);box-shadow:-14px 0 40px rgba(33,30,22,.22);overflow-y:auto;
+    transform:translateX(101%);transition:transform .28s cubic-bezier(.4,0,.2,1);padding:20px 26px 34px}
+  .drawer.open{transform:translateX(0)}
+  .drawerx{background:none;border:none;font-size:34px;line-height:1;color:var(--ink);cursor:pointer;
+    padding:0;margin:0 0 20px auto;display:block}
+  .drawer nav ul{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:0}
+  .drawer nav a{display:block;text-decoration:none;color:var(--ink);font-family:var(--disp);font-weight:800;
+    text-transform:uppercase;font-size:23px;letter-spacing:-.01em;padding:13px 0;border-bottom:1px solid var(--line2)}
+  .drawer nav a:hover{color:var(--tomato)}
+  .drawer-contact{margin-top:24px;padding-top:18px;border-top:2px solid var(--ink);display:flex;flex-direction:column;gap:9px}
+  .dc-label{font-family:var(--serif);font-size:12px;letter-spacing:.2em;text-transform:uppercase;color:var(--tomato);margin-bottom:4px}
+  .dc{text-decoration:none;color:var(--ink);font-family:var(--serif);font-size:16px}
+  .dc:hover{color:var(--tomato)}
+  /* keep sticky nav from covering headings on anchor jumps */
+  section{scroll-margin-top:96px}
+  .brand{font-family:var(--disp);font-weight:800;font-size:19px;text-transform:uppercase;letter-spacing:-.01em;display:flex;align-items:center;gap:9px}
 .nav a{text-decoration:none;color:var(--ink2);transition:color .15s}
 .nav a:hover{color:var(--tomato)}
 
