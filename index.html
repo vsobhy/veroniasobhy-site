@@ -112,16 +112,17 @@ section{padding:58px 0;border-bottom:1px solid var(--line)}
 
 /* work */
 .work{display:grid;gap:0;border-top:1px solid var(--line)}
-.proj{display:grid;grid-template-columns:.85fr 1.55fr;gap:28px;padding:28px 4px;border-bottom:1px solid var(--line);align-items:start}
-.proj.flag{background:var(--panel)}
-@media(max-width:720px){.proj{grid-template-columns:1fr;gap:14px}}
-.proj .kicker{font-family:var(--serif);font-size:12.5px;letter-spacing:.08em;text-transform:uppercase;color:var(--tomato);margin-bottom:9px}
-.proj .flagpin{display:inline-block;font-family:var(--disp);font-weight:800;font-size:11px;letter-spacing:.04em;text-transform:uppercase;color:var(--oat);background:var(--tomato);padding:3px 9px;border-radius:2px;margin-bottom:11px}
-.proj h3{font-family:var(--disp);font-weight:800;text-transform:uppercase;letter-spacing:-.015em;font-size:30px;line-height:.98;margin-bottom:6px}
-.proj .place{font-family:var(--serif);font-size:13px;color:var(--faint)}
-.proj .place a{color:var(--tomato);text-decoration:none;font-weight:700}
-.proj .place a:hover{text-decoration:underline}
-.proj p{color:var(--ink2);margin:0 0 14px;font-size:16px;line-height:1.55}
+.proj{padding:30px 0;border-bottom:1px solid var(--line2)}
+.proj:last-child{border-bottom:none}
+.proj.flag{background:var(--panel);padding:28px 24px;border-radius:4px;border-bottom:none;margin-bottom:10px}
+.proj h3{font-family:var(--disp);font-weight:800;text-transform:uppercase;letter-spacing:-.015em;font-size:clamp(25px,4.4vw,31px);line-height:1;margin:0 0 9px}
+.proj .pmeta{font-family:var(--serif);font-size:13.5px;color:var(--faint);margin-bottom:13px;line-height:1.65}
+.proj .pmeta .role{color:var(--tomato);letter-spacing:.06em;text-transform:uppercase;font-size:11.5px}
+.proj .pmeta a{color:var(--tomato);text-decoration:none;font-weight:700}
+.proj .pmeta a:hover{text-decoration:underline}
+.proj .flagpin{display:inline-block;font-family:var(--disp);font-weight:800;font-size:10.5px;letter-spacing:.06em;text-transform:uppercase;color:var(--oat);background:var(--tomato);padding:3px 9px;border-radius:2px;margin-bottom:10px}
+.proj p{color:var(--ink2);margin:0 0 14px;font-size:16px;line-height:1.55;max-width:62ch}
+.proj .sub-note{border-left:2px solid var(--sage);padding-left:14px;font-size:15px}
 .proj .tags{display:flex;flex-wrap:wrap;gap:7px}
 .tg{font-family:var(--serif);font-size:12.5px;color:var(--ink2);border:1px solid var(--line);border-radius:2px;padding:3px 10px}
 
@@ -234,47 +235,34 @@ footer{padding:24px 0 44px;color:var(--faint);font-family:var(--serif);font-size
   <section id="work">
     <div class="head"><span class="no">02</span><h2>Selected work</h2></div>
     <div class="work">
-
       <article class="proj flag">
-        <div>
-          <span class="flagpin">Featured</span>
-          <div class="kicker">Design &middot; Build &middot; Commerce</div>
-          <div class="place"><a href="https://mohinidey.com" target="_blank" rel="noopener">mohinidey.com</a></div>
-        </div>
-        <div>
-          <h3>Artist sites, built to sell</h3>
-          <p>A live site for touring bassist Mohini Dey: album promotion, tour presence, and a merch store
-            wired straight into Shopify so pre-orders run on day one. A repeatable offering, an artist gets a
-            site that looks like their brand and also sells, handled end to end.</p>
-          <div class="tags"><span class="tg">Next.js</span><span class="tg">Shopify</span><span class="tg">Merch pre-orders</span><span class="tg">Live</span></div>
-        </div>
+        <span class="flagpin">Featured</span>
+        <h3>Artist sites, built to sell</h3>
+        <div class="pmeta"><span class="role">Design &middot; Build &middot; Commerce</span><br><a href="https://mohinidey.com" target="_blank" rel="noopener">mohinidey.com</a></div>
+        <p>A live site for touring bassist Mohini Dey: album promotion, tour presence, and a merch store
+          wired straight into Shopify so pre-orders run on day one. A repeatable offering, an artist gets a
+          site that looks like their brand and also sells, handled end to end.</p>
+        <div class="tags"><span class="tg">Next.js</span><span class="tg">Shopify</span><span class="tg">Merch pre-orders</span><span class="tg">Live</span></div>
       </article>
 
       <article class="proj">
-        <div><div class="kicker">Founder &middot; Product</div><div class="place">Music licensing marketplace<br><a href="https://hrmny.pro" target="_blank" rel="noopener">hrmny.pro</a></div></div>
-        <div>
-          <h3>HRMNY</h3>
-          <p>A marketplace where artists license their music to buyers worldwide. Built and run as founder
-            across the artist and buyer sides, payments, and the go to market underneath it.</p>
-          <p style="border-left:2px solid var(--sage);padding-left:14px"><b>HerHrmny</b>, its women in music
-            community, runs weekly events at The Recording Club and has its own
-            <a href="https://my-store-11086f4.creator-spring.com/" target="_blank" rel="noopener" style="color:var(--tomato);font-weight:700;text-decoration:none">merch</a>.
-            The community and brand arm of HRMNY.</p>
-          <div class="tags"><span class="tg">Marketplace</span><span class="tg">Payments</span><span class="tg">Two-sided GTM</span><span class="tg">Community</span></div>
-        </div>
+        <h3>HRMNY</h3>
+        <div class="pmeta"><span class="role">Founder &middot; Product</span><br>Music licensing marketplace &middot; <a href="https://hrmny.pro" target="_blank" rel="noopener">hrmny.pro</a></div>
+        <p>A marketplace where artists license their music to buyers worldwide. Built and run as founder
+          across the artist and buyer sides, payments, and the go to market underneath it.</p>
+        <p class="sub-note"><b>HerHrmny</b>, its women in music community, runs weekly events at The
+          Recording Club and has its own <a href="https://my-store-11086f4.creator-spring.com/" target="_blank" rel="noopener" style="color:var(--tomato);font-weight:700;text-decoration:none">merch</a>.</p>
+        <div class="tags"><span class="tg">Marketplace</span><span class="tg">Payments</span><span class="tg">Two-sided GTM</span><span class="tg">Community</span></div>
       </article>
 
       <article class="proj">
-        <div><div class="kicker">Strategy &middot; Built from scratch</div><div class="place">The Recording Club<br><a href="https://app.therecording.club" target="_blank" rel="noopener">app.therecording.club</a><br><a href="https://info.therecording.club" target="_blank" rel="noopener">info.therecording.club</a></div></div>
-        <div>
-          <h3>Booking site, backend &amp; CRM</h3>
-          <p>Built the studio's booking site, backend systems, and CRM from zero using AI development tools, then
-            drove adoption across a flat org team. I designed the systems and got everyone to run on them,
-            while membership grew 125% in five months.</p>
-          <div class="tags"><span class="tg">Booking system</span><span class="tg">CRM</span><span class="tg">Backend</span><span class="tg">Change management</span></div>
-        </div>
+        <h3>Booking site, backend &amp; CRM</h3>
+        <div class="pmeta"><span class="role">Strategy &middot; Built from scratch</span><br>The Recording Club &middot; <a href="https://app.therecording.club" target="_blank" rel="noopener">app.therecording.club</a> &middot; <a href="https://info.therecording.club" target="_blank" rel="noopener">info.therecording.club</a></div>
+        <p>Built the studio's booking site, backend systems, and CRM from zero using AI development tools,
+          then drove adoption across a flat org team. I designed the systems and got everyone to run on them,
+          while membership grew 125% in five months.</p>
+        <div class="tags"><span class="tg">Booking system</span><span class="tg">CRM</span><span class="tg">Backend</span><span class="tg">Change management</span></div>
       </article>
-
     </div>
   </section>
 
