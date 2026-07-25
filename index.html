@@ -3,10 +3,10 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Veronia Sobhy | Product, Partnerships & AI</title>
-<meta name="description" content="Veronia Sobhy: product, partnerships, and growth operator across entertainment, brands, and tech. Builder and AI practitioner in Los Angeles.">
+<title>Veronia Sobhy | Music, Partnerships & Product</title>
+<meta name="description" content="Veronia Sobhy: a music partnerships operator who came up label-side (Phoebe Bridgers, Mitski, Bon Iver), runs partnerships at scale, and builds the platforms artists use. Los Angeles.">
 <meta property="og:title" content="Veronia Sobhy">
-<meta property="og:description" content="I build the product and the growth behind it.">
+<meta property="og:description" content="Artists, labels, and the platforms that pay them.">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 72 66'%3E%3Cg fill='%23C6291D'%3E%3Cpath d='M20.5 18.6 49.6 11.2 49.6 20.4 20.5 27.8 Z'/%3E%3Crect x='17.6' y='19.2' width='4.2' height='30'/%3E%3Crect x='46.7' y='11.8' width='4.2' height='30'/%3E%3Cellipse cx='12' cy='50.5' rx='8.6' ry='7' transform='rotate(-14 12 50.5)'/%3E%3Cellipse cx='41' cy='43' rx='8.6' ry='7' transform='rotate(-14 41 43)'/%3E%3C/g%3E%3Cg fill='%23A6BC86'%3E%3Cellipse cx='58.5' cy='9.5' rx='9' ry='4.1' transform='rotate(-24 58.5 9.5)'/%3E%3Cellipse cx='59.5' cy='19.5' rx='9.6' ry='4.3' transform='rotate(24 59.5 19.5)'/%3E%3Cellipse cx='55' cy='15' rx='7.4' ry='3.4' transform='rotate(4 55 15)'/%3E%3C/g%3E%3C/svg%3E">
 </head>
 <body>
@@ -112,9 +112,19 @@ section{padding:58px 0;border-bottom:1px solid var(--line)}
 
 /* work */
 .work{display:grid;gap:0;border-top:1px solid var(--line)}
-.proj{padding:30px 0;border-bottom:1px solid var(--line2)}
+.proj{display:grid;grid-template-columns:minmax(0,.92fr) 1fr;gap:30px;align-items:center;padding:34px 0;border-bottom:1px solid var(--line2)}
+@media(max-width:720px){.proj{grid-template-columns:1fr;gap:18px;align-items:start}}
 .proj:last-child{border-bottom:none}
-.proj.flag{background:var(--panel);padding:28px 24px;border-radius:4px;border-bottom:none;margin-bottom:10px}
+.proj.flag{background:var(--panel);padding:26px 24px;border-radius:4px;border-bottom:none;margin-bottom:10px}
+.projbody{min-width:0}
+/* live-site preview */
+.shot{display:block;border:1px solid var(--line);border-radius:7px;overflow:hidden;background:#14110b;text-decoration:none;box-shadow:5px 5px 0 rgba(33,30,22,.10);transition:transform .18s ease,box-shadow .18s ease}
+.shot:hover{transform:translate(-3px,-3px);box-shadow:8px 8px 0 var(--tomato)}
+.shotbar{display:flex;align-items:center;gap:6px;padding:8px 12px;background:var(--panel-2);border-bottom:1px solid var(--line)}
+.shotbar i{width:9px;height:9px;border-radius:50%;background:var(--faint);opacity:.55;flex:none}
+.shotbar i:first-child{background:var(--tomato);opacity:.85}
+.shoturl{margin-left:9px;font-family:var(--serif);font-size:11.5px;color:var(--ink2);letter-spacing:.02em;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.shot img{display:block;width:100%;height:auto}
 .proj h3{font-family:var(--disp);font-weight:800;text-transform:uppercase;letter-spacing:-.015em;font-size:clamp(25px,4.4vw,31px);line-height:1;margin:0 0 9px}
 .proj .pmeta{font-family:var(--serif);font-size:13.5px;color:var(--faint);margin-bottom:13px;line-height:1.65}
 .proj .pmeta .role{color:var(--tomato);letter-spacing:.06em;text-transform:uppercase;font-size:11.5px}
@@ -213,11 +223,11 @@ footer{padding:24px 0 44px;color:var(--faint);font-family:var(--serif);font-size
     </div>
     <div>
       <div class="eyebrow">
-        Los Angeles &middot; Product, Partnerships &amp; AI
+        Los Angeles &middot; Music, Partnerships &amp; Product
       </div>
-      <h1>I build the<br>product <span class="amp">&amp;</span> the<br>growth.</h1>
-      <p class="lede">A <b>partnerships and growth operator who also ships the product</b>. I have run a $50M brand portfolio and driven culture-defining campaigns, and I build the software too: marketplaces, artist sites, and AI tools. Partnerships people rarely build. Builders rarely have artist relationships. I work at the seam, for platforms that get artists and creators paid.</p>
-      <div class="facts"><span class="fact">Product</span><span class="fact">Partnerships</span><span class="fact">AI development</span><span class="fact">Entertainment</span></div>
+      <h1>Artists,<br>labels <span class="amp">&amp;</span><br>the platforms<br>that pay&nbsp;them.</h1>
+      <p class="lede">A <b>music partnerships operator who came up label-side</b> and never left the artist's side. I ran digital and A&amp;R for an indie roster including Phoebe Bridgers, Mitski, and Bon Iver, managed a $50M+ entertainment partnerships portfolio at TikTok, and founded a music licensing marketplace. I know how labels, artists, and platforms actually work together, and I build the tools that connect them.</p>
+      <div class="facts"><span class="fact">Label &amp; artist relations</span><span class="fact">Partnerships at scale</span><span class="fact">A&amp;R</span><span class="fact">Builds the product</span></div>
       <a class="cta" href="#work">See the work &darr;</a>
     </div>
   </header>
@@ -226,9 +236,9 @@ footer{padding:24px 0 44px;color:var(--faint);font-family:var(--serif);font-size
   <section id="whatido">
     <div class="head"><span class="no">01</span><h2>What I do</h2></div>
     <div class="pillars">
-      <div class="pillar"><h3>Partnerships at scale</h3><p>Enterprise brand and creator partnerships, revenue, and go to market. A $50M+ portfolio at TikTok, one account grown from $10K to $1M+ in twelve months, and 125% growth at the studio. I turn relationships into revenue.</p></div>
-      <div class="pillar"><h3>I ship the product</h3><p>Marketplaces, artist sites with commerce, booking systems, CRMs, and AI tools. Designed, coded, and running in production. I can talk to engineers as someone who builds, not just briefs.</p></div>
-      <div class="pillar"><h3>Native to the work</h3><p>A musician, producer, and composer who founded a licensing marketplace and runs a women in music community. I build with Claude and Replit Agent, top 1%. I speak to artists as one of them.</p></div>
+      <div class="pillar"><h3>Label &amp; artist relations</h3><p>Digital and A&amp;R for an indie roster including Phoebe Bridgers, Mitski, and Bon Iver at Secretly Group. Founder of a licensing marketplace negotiating directly with independent artists, and a women in music community. I speak label and artist fluently.</p></div>
+      <div class="pillar"><h3>Partnerships at scale</h3><p>A $50M+ entertainment portfolio at TikTok, one account grown from $10K to $1M+ in twelve months, and culture activations with Paris Hilton and Doja Cat across 50+ stakeholders. I manage a large book of relationships and turn them into revenue.</p></div>
+      <div class="pillar"><h3>I build the platform too</h3><p>Marketplaces, artist sites with commerce, booking systems, and AI tools, running in production. Rare for a partnerships person: I understand the product artists and labels actually use, because I ship it.</p></div>
     </div>
   </section>
 
@@ -236,32 +246,51 @@ footer{padding:24px 0 44px;color:var(--faint);font-family:var(--serif);font-size
     <div class="head"><span class="no">02</span><h2>Selected work</h2></div>
     <div class="work">
       <article class="proj flag">
-        <span class="flagpin">Featured</span>
-        <h3>Artist sites, built to sell</h3>
-        <div class="pmeta"><span class="role">Design &middot; Build &middot; Commerce</span><br><a href="https://mohinidey.com" target="_blank" rel="noopener">mohinidey.com</a></div>
-        <p>A live site for touring bassist Mohini Dey: album promotion, tour presence, and a merch store
-          wired straight into Shopify so pre-orders run on day one. A repeatable offering, an artist gets a
-          site that looks like their brand and also sells, handled end to end.</p>
-        <div class="tags"><span class="tg">Next.js</span><span class="tg">Shopify</span><span class="tg">Merch pre-orders</span><span class="tg">Live</span></div>
+        <a class="shot" href="https://mohinidey.com" target="_blank" rel="noopener" aria-label="Open mohinidey.com in a new tab">
+          <span class="shotbar"><i></i><i></i><i></i><span class="shoturl">mohinidey.com</span></span>
+          <img src="work/mohini.jpg" width="1600" height="1075" alt="Live artist site for bassist Mohini Dey, with a bold hero and merch pre-orders" loading="lazy">
+        </a>
+        <div class="projbody">
+          <span class="flagpin">Featured</span>
+          <h3>Artist sites, built to sell</h3>
+          <div class="pmeta"><span class="role">Design &middot; Build &middot; Commerce</span><br><a href="https://mohinidey.com" target="_blank" rel="noopener">mohinidey.com</a></div>
+          <p>A live site for touring bassist Mohini Dey: album promotion, tour presence, and a merch store
+            wired straight into Shopify so pre-orders run on day one. A repeatable offering, an artist gets a
+            site that looks like their brand and also sells, handled end to end.</p>
+          <div class="tags"><span class="tg">Next.js</span><span class="tg">Shopify</span><span class="tg">Merch pre-orders</span><span class="tg">Live</span></div>
+        </div>
       </article>
 
       <article class="proj">
-        <h3>HRMNY</h3>
-        <div class="pmeta"><span class="role">Founder &middot; Product</span><br>Music licensing marketplace &middot; <a href="https://hrmny.pro" target="_blank" rel="noopener">hrmny.pro</a></div>
-        <p>A marketplace where artists license their music to buyers worldwide. Built and run as founder
-          across the artist and buyer sides, payments, and the go to market underneath it.</p>
-        <p class="sub-note"><b>HerHrmny</b>, its women in music community, runs weekly events at The
-          Recording Club and has its own <a href="https://my-store-11086f4.creator-spring.com/" target="_blank" rel="noopener" style="color:var(--tomato);font-weight:700;text-decoration:none">merch</a>.</p>
-        <div class="tags"><span class="tg">Marketplace</span><span class="tg">Payments</span><span class="tg">Two-sided GTM</span><span class="tg">Community</span></div>
+        <a class="shot" href="https://hrmny.pro" target="_blank" rel="noopener" aria-label="Open hrmny.pro in a new tab">
+          <span class="shotbar"><i></i><i></i><i></i><span class="shoturl">hrmny.pro</span></span>
+          <img src="work/hrmny.jpg" width="1600" height="1075" alt="HRMNY music licensing marketplace: a featured indie track and catalog stats" loading="lazy">
+        </a>
+        <div class="projbody">
+          <h3>HRMNY</h3>
+          <div class="pmeta"><span class="role">Founder &middot; Product</span><br>Music licensing marketplace &middot; <a href="https://hrmny.pro" target="_blank" rel="noopener">hrmny.pro</a></div>
+          <p>A marketplace where independent artists license their music, sync and commercial, and keep the
+            full fee. Built and run as founder across the artist and buyer sides, payments, and the go to
+            market underneath it.</p>
+          <p class="sub-note"><b>HerHrmny</b>, its women in music community, runs weekly events at The
+            Recording Club and has its own <a href="https://my-store-11086f4.creator-spring.com/" target="_blank" rel="noopener" style="color:var(--tomato);font-weight:700;text-decoration:none">merch</a>.</p>
+          <div class="tags"><span class="tg">Licensing</span><span class="tg">Payments</span><span class="tg">Two-sided GTM</span><span class="tg">Community</span></div>
+        </div>
       </article>
 
       <article class="proj">
-        <h3>Booking site, backend &amp; CRM</h3>
-        <div class="pmeta"><span class="role">Strategy &middot; Built from scratch</span><br>The Recording Club &middot; <a href="https://app.therecording.club" target="_blank" rel="noopener">app.therecording.club</a> &middot; <a href="https://info.therecording.club" target="_blank" rel="noopener">info.therecording.club</a></div>
-        <p>Built the studio's booking site, backend systems, and CRM from zero using AI development tools,
-          then drove adoption across a flat org team. I designed the systems and got everyone to run on them,
-          while membership grew 125% in five months.</p>
-        <div class="tags"><span class="tg">Booking system</span><span class="tg">CRM</span><span class="tg">Backend</span><span class="tg">Change management</span></div>
+        <a class="shot" href="https://app.therecording.club" target="_blank" rel="noopener" aria-label="Open app.therecording.club in a new tab">
+          <span class="shotbar"><i></i><i></i><i></i><span class="shoturl">app.therecording.club</span></span>
+          <img src="work/trc.jpg" width="1600" height="1075" alt="The Recording Club booking site, built from scratch, with studio and class booking" loading="lazy">
+        </a>
+        <div class="projbody">
+          <h3>Booking site, backend &amp; CRM</h3>
+          <div class="pmeta"><span class="role">Strategy &middot; Built from scratch</span><br>The Recording Club &middot; <a href="https://app.therecording.club" target="_blank" rel="noopener">app.therecording.club</a> &middot; <a href="https://info.therecording.club" target="_blank" rel="noopener">info.therecording.club</a></div>
+          <p>Built the studio's booking site, backend systems, and CRM from zero using AI development tools,
+            then drove adoption across a flat org team. I designed the systems and got everyone to run on them,
+            while membership grew 125% in five months.</p>
+          <div class="tags"><span class="tg">Booking system</span><span class="tg">CRM</span><span class="tg">Backend</span><span class="tg">Change management</span></div>
+        </div>
       </article>
     </div>
   </section>
@@ -306,9 +335,9 @@ footer{padding:24px 0 44px;color:var(--faint);font-family:var(--serif);font-size
   <section id="skills">
     <div class="head"><span class="no">04</span><h2>Skills</h2></div>
     <div class="kit">
-      <div class="cell"><div class="h">Building &amp; Engineering</div><div class="list">Web apps and sites (Next.js), Shopify commerce, browser extensions, backend and CRM systems, booking and automation flows.</div></div>
-      <div class="cell"><div class="h">AI</div><div class="list">AI integrated product development, Claude, Replit Agent (top 1%), prompt and agent workflows, shipping real AI features.</div></div>
-      <div class="cell"><div class="h">Growth &amp; Partnerships</div><div class="list">Enterprise partnerships, revenue and GTM, brand activations, acquisition strategy, project management.</div></div>
+      <div class="cell"><div class="h">Label, Artist &amp; Partnerships</div><div class="list">Label and artist relations, A&amp;R and digital strategy, enterprise and creator partnerships, licensing, revenue and GTM, culture activations, acquisition strategy.</div></div>
+      <div class="cell"><div class="h">Music &amp; Community</div><div class="list">Musician, producer, and composer. Founder of a music licensing marketplace and a women in music community running weekly events. Native to the artist and label ecosystem.</div></div>
+      <div class="cell"><div class="h">Building &amp; Engineering</div><div class="list">Web apps and sites (Next.js), Shopify commerce, browser extensions, backend and CRM systems, AI integrated product development, Claude, Replit Agent (top 1%).</div></div>
       <div class="cell"><div class="h">Certifications &amp; Education</div><div class="list"><a href="https://coursera.org/verify/OIZSEDRYMCYE" target="_blank" rel="noopener" style="color:var(--tomato);font-weight:700;text-decoration:none">Music Business Foundations, Berklee College of Music</a> &middot; Google Project Management Certificate (in progress) &middot; Google AI certification (next) &middot; Salesforce CRM &middot; <a href="https://linkedin.com/in/veronia-sobhy" target="_blank" rel="noopener" style="color:var(--tomato);font-weight:700;text-decoration:none">Replit Agent, ranked top 1%</a>. BS Marketing, Indiana University, Kelley School of Business (Honors, Distinction).</div></div>
     </div>
   </section>
@@ -326,7 +355,7 @@ footer{padding:24px 0 44px;color:var(--faint);font-family:var(--serif);font-size
   <section id="contact" class="contact">
     <div class="eyebrow">Get in touch</div>
     <h2>Let's make<br>something.</h2>
-    <p class="lede" style="margin-top:8px">Open to creator, artist, and product partnerships roles at platforms that put artists first. Los Angeles.</p>
+    <p class="lede" style="margin-top:8px">Open to label, artist, and creator partnerships roles at platforms that put artists first. Los Angeles.</p>
     <div class="links">
       <a class="clink primary" href="mailto:veroniasobhy.business@gmail.com">Email</a>
       <a class="clink" href="https://linkedin.com/in/veronia-sobhy" target="_blank" rel="noopener">LinkedIn</a>
