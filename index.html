@@ -58,8 +58,8 @@
     backdrop-filter:saturate(1.3) blur(10px);-webkit-backdrop-filter:saturate(1.3) blur(10px);border-bottom:1px solid var(--line)}
   header .wrap{display:flex;justify-content:space-between;align-items:center;gap:18px;padding-top:14px;padding-bottom:14px}
   .brand{display:inline-flex;align-items:center;gap:9px;font-family:var(--disp);font-size:20px;letter-spacing:.02em;text-transform:uppercase;white-space:nowrap}
-  .brand .mark{flex:none;display:block;width:31px;height:24px;background:var(--cream);isolation:isolate}
-  .brand .mark img{width:100%;height:100%;object-fit:contain;mix-blend-mode:multiply;display:block}
+  .brand .mark{flex:none;display:block;width:30px;height:26px}
+  .brand .mark img{width:100%;height:100%;object-fit:contain;display:block}
   .tabs{display:flex;gap:8px;overflow-x:auto;scrollbar-width:none;-ms-overflow-style:none}
   .tabs::-webkit-scrollbar{display:none}
   /* Life Tracker treatment: transparent + outline at rest, fill accent + cream on hover/active */
@@ -539,7 +539,23 @@
     .view.active{animation:none}
     *{animation:none!important;transition:none!important}
   }
+  /* touch devices: :hover is sticky/unreliable - neutralize the hover dim/lift/overlay so a tap never dims cards */
+  @media (hover:none){
+    .tiers:has(.tier:hover) .tier:not(:hover),
+    .case-list:has(.case:hover) .case:not(:hover),
+    .bento:has(.bcard:hover) .bcard:not(:hover){opacity:1!important;transform:none!important}
+    .tier:hover,.case:hover,.bcard:hover,.bcard.feat:hover{transform:none!important}
+    .case:hover .shot img{transform:none!important}
+    .shot-link:hover .visit{opacity:0!important}
+  }
 </style>
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="manifest" href="/manifest.webmanifest">
+<meta name="apple-mobile-web-app-title" content="Veronia Sobhy">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="default">
+<meta name="theme-color" content="#F4EBD3">
 </head>
 <body>
 <a class="skip-link" href="#top">Skip to content</a>
@@ -547,7 +563,7 @@
 
 <header>
   <div class="wrap">
-    <div class="brand" data-view="home" role="button" tabindex="0"><span class="mark" aria-hidden="true"><img src="mark.jpg" alt=""></span><span>Veronia Sobhy</span></div>
+    <div class="brand" data-view="home" role="button" tabindex="0"><span class="mark" aria-hidden="true"><img src="/nav-icon.png" alt=""></span><span>Veronia Sobhy</span></div>
     <button class="navtoggle" id="navToggle" type="button" aria-expanded="false" aria-controls="tabs-nav" aria-label="Open menu"><span class="bars" aria-hidden="true"><i></i><i></i><i></i></span></button>
     <nav class="tabs" id="tabs-nav" role="tablist" aria-label="Sections">
       <button class="tab active" data-view="home" role="tab" aria-selected="true" aria-controls="view-home">Home</button>
