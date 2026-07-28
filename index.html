@@ -9,13 +9,13 @@
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 72 66'><g fill='%23C6291D'><path d='M20.5 18.6 49.6 11.2 49.6 20.4 20.5 27.8 Z'/><rect x='17.6' y='19.2' width='4.2' height='30'/><rect x='46.7' y='11.8' width='4.2' height='30'/><ellipse cx='12' cy='50.5' rx='8.6' ry='7' transform='rotate(-14 12 50.5)'/><ellipse cx='41' cy='43' rx='8.6' ry='7' transform='rotate(-14 41 43)'/></g><g fill='%23A6BC86'><ellipse cx='58.5' cy='9.5' rx='9' ry='4.1' transform='rotate(-24 58.5 9.5)'/><ellipse cx='59.5' cy='19.5' rx='9.6' ry='4.3' transform='rotate(24 59.5 19.5)'/><ellipse cx='55' cy='15' rx='7.4' ry='3.4' transform='rotate(4 55 15)'/></g></svg>">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://veroniasobhy.com/">
-<meta property="og:title" content="Veronia Sobhy | AI-native builder and operator">
-<meta property="og:description" content="I find where AI creates leverage and build the product that captures it.">
-<meta property="og:image" content="https://veroniasobhy.com/work/this-site.jpg">
+<meta property="og:title" content="veroniasobhy.com">
+<meta property="og:description" content="">
+<meta property="og:image" content="https://veroniasobhy.com/og.jpg">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Veronia Sobhy | AI-native builder and operator">
-<meta name="twitter:description" content="I find where AI creates leverage and build the product that captures it.">
-<meta name="twitter:image" content="https://veroniasobhy.com/work/this-site.jpg">
+<meta name="twitter:title" content="veroniasobhy.com">
+<meta name="twitter:description" content="">
+<meta name="twitter:image" content="https://veroniasobhy.com/og.jpg">
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"Person","name":"Veronia Sobhy","url":"https://veroniasobhy.com/","jobTitle":"AI-native builder and operator","image":"https://veroniasobhy.com/work/this-site.jpg","sameAs":["https://linkedin.com/in/veronia-sobhy","https://github.com/vsobhy"],"knowsAbout":["AI development","Product engineering","Multi-agent systems","Brand partnerships","Music production"]}</script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -58,7 +58,8 @@
     backdrop-filter:saturate(1.3) blur(10px);-webkit-backdrop-filter:saturate(1.3) blur(10px);border-bottom:1px solid var(--line)}
   header .wrap{display:flex;justify-content:space-between;align-items:center;gap:18px;padding-top:14px;padding-bottom:14px}
   .brand{display:inline-flex;align-items:center;gap:9px;font-family:var(--disp);font-size:20px;letter-spacing:.02em;text-transform:uppercase;white-space:nowrap}
-  .brand .mark{flex:none;display:block}
+  .brand .mark{flex:none;display:block;width:31px;height:24px;background:var(--cream);isolation:isolate}
+  .brand .mark img{width:100%;height:100%;object-fit:contain;mix-blend-mode:multiply;display:block}
   .tabs{display:flex;gap:8px;overflow-x:auto;scrollbar-width:none;-ms-overflow-style:none}
   .tabs::-webkit-scrollbar{display:none}
   /* Life Tracker treatment: transparent + outline at rest, fill accent + cream on hover/active */
@@ -68,14 +69,34 @@
   .tab:hover{background:var(--red);border-color:var(--red);color:var(--cream)}
   .tab.active,.tab.active:hover{background:var(--red);border-color:var(--red);color:var(--cream)}
   .tab:focus-visible{outline:3px solid var(--sage);outline-offset:2px}
+  /* hamburger (mobile only): 3 lines that morph to an X when the menu is open */
+  .navtoggle{display:none;width:44px;height:44px;flex:none;border:none;background:transparent;cursor:pointer;padding:0;align-items:center;justify-content:center}
+  .navtoggle .bars{position:relative;width:22px;height:15px}
+  .navtoggle .bars i{position:absolute;left:0;width:100%;height:2.5px;background:var(--ink);border-radius:2px;transition:transform .3s cubic-bezier(.4,0,.2,1),opacity .2s ease,top .3s cubic-bezier(.4,0,.2,1)}
+  .navtoggle .bars i:nth-child(1){top:0}
+  .navtoggle .bars i:nth-child(2){top:6.25px}
+  .navtoggle .bars i:nth-child(3){top:12.5px}
+  .navtoggle[aria-expanded="true"] .bars i:nth-child(1){top:6.25px;transform:rotate(45deg)}
+  .navtoggle[aria-expanded="true"] .bars i:nth-child(2){opacity:0}
+  .navtoggle[aria-expanded="true"] .bars i:nth-child(3){top:6.25px;transform:rotate(-45deg)}
+  .navtoggle:focus-visible{outline:3px solid var(--sage);outline-offset:2px;border-radius:8px}
+  @media (prefers-reduced-motion:reduce){.navtoggle .bars i{transition:none}}
   @media (max-width:640px){
-    header .wrap{flex-wrap:wrap;row-gap:8px;column-gap:10px;justify-content:center}
-    .brand{font-size:16px;flex-basis:100%;text-align:center}
-    .tabs{flex-basis:100%;flex-wrap:wrap;overflow:visible;justify-content:center;gap:6px}
-    .tab{padding:8px 15px;font-size:12.5px;min-height:44px;display:inline-flex;align-items:center;justify-content:center}
+    header .wrap{flex-wrap:nowrap;justify-content:space-between;gap:12px}
+    .brand{font-size:16px}
+    .navtoggle{display:inline-flex}
+    /* tabs become a slide-down dropdown under the fixed header */
+    .tabs{position:absolute;top:100%;left:0;right:0;flex-direction:column;gap:4px;overflow:auto;
+      background:var(--cream);border-bottom:1px solid var(--line);box-shadow:0 20px 34px -20px rgba(34,28,20,.45);
+      padding:10px clamp(16px,4vw,20px) 14px;max-height:calc(100vh - 58px);
+      visibility:hidden;opacity:0;transform:translateY(-8px);pointer-events:none;
+      transition:opacity .22s ease,transform .22s ease,visibility .22s}
+    .tabs.open{visibility:visible;opacity:1;transform:none;pointer-events:auto}
+    .tab{width:100%;justify-content:flex-start;min-height:46px;font-size:15px;padding:11px 16px}
     .contactcard .seg{padding:5px}
     .contactcard .seg button{min-height:44px;display:inline-flex;align-items:center;justify-content:center}
   }
+  @media (max-width:640px) and (prefers-reduced-motion:reduce){.tabs{transition:none}}
 
   /* view switching */
   .view{display:none}
@@ -108,6 +129,13 @@
   .btn-primary{margin-top:28px;display:inline-flex;align-items:center;gap:10px;background:var(--red);color:var(--cream);
     border:2px solid var(--red);border-radius:999px;padding:13px 26px;font-weight:600;font-size:15px;cursor:pointer;transition:background .2s,transform .2s}
   .btn-primary:hover{background:var(--red-dk);transform:translateY(-2px)}
+  /* mobile hero: keep the 3 tags on ONE line (scroll within the strip if tight, never page overflow) + center the CTA */
+  @media (max-width:640px){
+    .hero-tags{flex-wrap:nowrap;gap:6px;overflow-x:auto;scrollbar-width:none;-webkit-overflow-scrolling:touch}
+    .hero-tags::-webkit-scrollbar{display:none}
+    .hero-tags .tag{font-size:11px;padding:6px 11px;white-space:nowrap;flex:none}
+    .btn-primary{display:flex;width:max-content;margin-left:auto;margin-right:auto}
+  }
   .halftone-wrap{position:relative;aspect-ratio:4/5;border-radius:8px;overflow:hidden;background:var(--cream)}
   .halftone-wrap .ht-photo{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;filter:contrast(1.04) saturate(1.03)}
   .halftone-wrap #halftone{position:absolute;inset:0;width:100%;height:100%;background:var(--cream);transition:opacity .5s ease}
@@ -185,6 +213,10 @@
   .chip{font-size:11.5px;font-weight:600;border:1px solid var(--line);border-radius:999px;padding:5px 11px}
   .chip.live{border-color:var(--sage);color:#3f5730}
   .advisory{margin-top:26px;font-size:14px;color:var(--ink-soft)}
+  .artistline{margin-top:12px;font-size:14px;color:var(--ink-soft)}
+  .artistline .artistlink{color:inherit}
+  .artistline .artistlink b{color:var(--red);font-weight:600;border-bottom:1.5px solid transparent;transition:border-color .2s}
+  .artistline .artistlink:hover b{border-bottom-color:rgba(198,41,29,.55)}
   /* Services network opener (full-bleed centerpiece band; reuses the live network) */
   .aiframe{max-width:60ch;font-family:var(--serif);font-weight:400;font-size:clamp(17px,2.1vw,22px);line-height:1.4;color:var(--ink);margin:6px 0 0}
   .aiband{position:relative;width:100%;padding:8px clamp(20px,4vw,64px) 0}
@@ -238,6 +270,11 @@
   @media (prefers-reduced-motion:reduce){.marquee-track{animation:none;flex-wrap:wrap;justify-content:center;width:auto}.mq-chip{margin-bottom:10px}}
   /* floating AI concierge widget */
   /* expanding pill: chat icon at rest (~56px), reveals 'Services' on hover/focus */
+  /* concierge backdrop: blur + dim the page behind the open panel; click to close */
+  .cc-backdrop{position:fixed;inset:0;z-index:999;background:rgba(34,28,20,.28);backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px);opacity:0;transition:opacity .25s ease}
+  .cc-backdrop.show{opacity:1}
+  .cc-backdrop[hidden]{display:none}
+  @media (prefers-reduced-motion:reduce){.cc-backdrop{transition:none}}
   .cc-launch{position:fixed;right:22px;bottom:22px;z-index:1000;display:inline-flex;align-items:center;justify-content:center;
     background:var(--red);color:var(--cream);border:none;border-radius:999px;height:56px;padding:0 18px;overflow:hidden;white-space:nowrap;cursor:pointer;
     font-family:var(--body);font-weight:600;font-size:14px;box-shadow:0 12px 30px -8px rgba(198,41,29,.55);
@@ -457,6 +494,11 @@
   .contactcard input:focus,.contactcard select:focus,.contactcard textarea:focus{border-color:var(--red);box-shadow:0 0 0 4px rgba(198,41,29,.13)}
   .contactcard select{appearance:none;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='14' height='14' viewBox='0 0 24 24' fill='none' stroke='%235a4f3e' stroke-width='2.5'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 15px center;padding-right:40px;cursor:pointer}
   .contactcard textarea{resize:vertical;min-height:104px}
+  /* artist-discount checkbox (native, red accent, on-brand) */
+  .contactcard .artistrow{flex-direction:row;align-items:flex-start;gap:11px;margin-top:2px}
+  .contactcard .artistrow input[type=checkbox]{width:20px;height:20px;flex:none;margin:1px 0 0;accent-color:var(--red);cursor:pointer}
+  .contactcard .artistrow label{margin:0;font-size:13.5px;font-weight:500;letter-spacing:normal;text-transform:none;color:var(--ink-soft);cursor:pointer;line-height:1.45}
+  .contactcard .artistrow label b{color:var(--red);font-weight:700}
   .contactcard .field.has-check{position:relative}
   .contactcard .field.has-check input{padding-right:42px}
   .contactcard .field .cf-check{position:absolute;right:10px;top:32px;width:23px;height:23px;opacity:0;transform:scale(.6);transition:opacity .2s,transform .2s;pointer-events:none}
@@ -505,8 +547,9 @@
 
 <header>
   <div class="wrap">
-    <div class="brand" data-view="home" role="button" tabindex="0"><svg class="mark" width="26" height="24" viewBox="0 0 72 66" aria-hidden="true"><g fill="#C6291D"><path d="M20.5 18.6 49.6 11.2 49.6 20.4 20.5 27.8 Z"/><rect x="17.6" y="19.2" width="4.2" height="30"/><rect x="46.7" y="11.8" width="4.2" height="30"/><ellipse cx="12" cy="50.5" rx="8.6" ry="7" transform="rotate(-14 12 50.5)"/><ellipse cx="41" cy="43" rx="8.6" ry="7" transform="rotate(-14 41 43)"/></g><g fill="#A6BC86"><ellipse cx="58.5" cy="9.5" rx="9" ry="4.1" transform="rotate(-24 58.5 9.5)"/><ellipse cx="59.5" cy="19.5" rx="9.6" ry="4.3" transform="rotate(24 59.5 19.5)"/><ellipse cx="55" cy="15" rx="7.4" ry="3.4" transform="rotate(4 55 15)"/></g></svg><span>Veronia Sobhy</span></div>
-    <nav class="tabs" role="tablist" aria-label="Sections">
+    <div class="brand" data-view="home" role="button" tabindex="0"><span class="mark" aria-hidden="true"><img src="mark.jpg" alt=""></span><span>Veronia Sobhy</span></div>
+    <button class="navtoggle" id="navToggle" type="button" aria-expanded="false" aria-controls="tabs-nav" aria-label="Open menu"><span class="bars" aria-hidden="true"><i></i><i></i><i></i></span></button>
+    <nav class="tabs" id="tabs-nav" role="tablist" aria-label="Sections">
       <button class="tab active" data-view="home" role="tab" aria-selected="true" aria-controls="view-home">Home</button>
       <button class="tab" data-view="services" role="tab" aria-selected="false" aria-controls="view-services">Services</button>
       <button class="tab" data-view="work" role="tab" aria-selected="false" aria-controls="view-work">Work</button>
@@ -591,7 +634,7 @@
             <li>A concrete roadmap plus quick wins</li>
             <li>For teams who know AI matters, not where to point it</li>
           </ul>
-          <div class="price">Let's scope it<span>Fixed-scope engagement</span></div>
+          <div class="price">From $1,500<span>Fixed-scope engagement</span></div>
           <button class="cta" data-service="AI strategy sprint">Let's scope it</button>
         </div>
 
@@ -606,7 +649,7 @@
             <li>A <b>real product in production</b>, not a prototype</li>
             <li><b>This very site is exhibit A</b></li>
           </ul>
-          <div class="price">Let's scope it<span>Per-project build</span></div>
+          <div class="price">$5,000-$7,500<span>Per-project build</span></div>
           <button class="cta" data-service="AI-powered site or app">Let's scope it</button>
         </div>
 
@@ -620,11 +663,12 @@
             <li>Systems, automation, and AI ops</li>
             <li>Flexible, month to month</li>
           </ul>
-          <div class="price">Let's scope it<span>Monthly retainer</span></div>
+          <div class="price">From $3,000/mo<span>Monthly retainer</span></div>
           <button class="cta" data-service="Fractional AI operator">Let's scope it</button>
         </div>
       </div>
       <p class="advisory reveal">Scoped advisory also available on an hourly basis. Not sure which fits? The concierge, bottom right, will point you to the right one.</p>
+      <p class="artistline reveal">Building for an artist? <a href="#contact" class="artistlink">Ask about the <b>artist discount</b>.</a></p>
     </div>
   </section>
 
@@ -668,15 +712,16 @@
         </article>
 
         <article class="case reveal">
-          <div class="shot"><img src="work/trc.jpg" alt="The Recording Club" loading="lazy"></div>
+          <a class="shot shot-link" href="https://info.therecording.club" target="_blank" rel="noopener" aria-label="Visit info.therecording.club (opens in a new tab)"><img src="work/trc.jpg" alt="The Recording Club" loading="lazy"><span class="visit">Visit site <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17L17 7M8 7h9v9"/></svg></span></a>
           <div class="body">
-            <div class="top"><span class="role">Build &middot; Systems &middot; Growth</span></div>
+            <div class="top"><span class="role">Build &middot; Systems &middot; Growth</span><span class="live">Live</span></div>
             <h3>The Recording Club</h3>
             <div class="cs">
               <div class="row"><span class="k">What</span><p>A members' recording studio's booking site, backend, and CRM, built from scratch with AI dev tools.</p></div>
               <div class="row"><span class="k">Does</span><p>Runs booking and membership operations end to end. Alongside the build, I led acquisition and brand partnerships with JBL, Splice, Musiversal, Red Bull, and DistroKid.</p></div>
               <div class="row res"><span class="k">Result</span><p>Membership grew 125% in five months. A live system running a real business.</p></div>
             </div>
+            <div class="linkline"><a href="https://info.therecording.club" target="_blank" rel="noopener">info.therecording.club</a> &nbsp;&middot;&nbsp; <a href="https://app.therecording.club" target="_blank" rel="noopener">app.therecording.club</a></div>
           </div>
         </article>
 
@@ -706,7 +751,7 @@
             <div class="cs">
               <div class="row"><span class="k">What</span><p>The site you are on. An award-caliber interactive portfolio and services showcase.</p></div>
               <div class="row"><span class="k">Does</span><p>Built by hand with AI: a custom interactive signature, real motion, and an app-style tabbed interface.</p></div>
-              <div class="row res"><span class="k">Result</span><p>I designed and built every pixel here. If mine looks like this, picture yours.</p></div>
+              <div class="row res"><span class="k">Result</span><p>I designed and built every pixel here.</p></div>
             </div>
             <div class="linkline"><a href="https://veroniasobhy.com" target="_blank" rel="noopener">veroniasobhy.com</a></div>
           </div>
@@ -811,6 +856,10 @@
             <div class="field" data-only="role" id="fldRole" hidden><label for="cfRole">Role / title</label><input id="cfRole" name="role" placeholder="e.g. Founding engineer, AI lead"></div>
             <div class="field"><label for="cfTimeline">Timeline</label><input id="cfTimeline" name="timeline" placeholder="e.g. next 4 to 6 weeks"></div>
             <div class="field full"><label for="cfMsg">Message</label><textarea id="cfMsg" name="message" placeholder="What are you building, or what's the role? A sentence is plenty to start." required></textarea></div>
+            <div class="field full artistrow">
+              <input type="checkbox" id="cfArtist" name="artist_discount" value="Yes - wants artist discount info">
+              <label for="cfArtist">Building for an artist? Send me the <b>artist discount</b> info.</label>
+            </div>
             <div class="submit">
               <button type="submit" class="btn">Send message <svg class="arr" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h13M13 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
               <span class="fine" id="cfStatus" role="status" aria-live="polite">Or email me at <a href="mailto:veroniasobhy.business@gmail.com">veroniasobhy.business@gmail.com</a></span>
@@ -830,6 +879,7 @@
 <footer class="wrap"><span>&copy; 2026 Veronia Sobhy</span><span>Built by hand, with AI. Los Angeles.</span></footer>
 
 <!-- Floating AI concierge (guided recommender; structured for a future LLM endpoint) -->
+<div class="cc-backdrop" id="ccBackdrop" hidden></div>
 <button class="cc-launch" id="ccLaunch" aria-haspopup="dialog" aria-expanded="false" aria-controls="ccPanel">
   <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 4h16v12H8l-4 4V4z" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/></svg>
   <span>Services</span>
@@ -898,6 +948,25 @@ const reduce = matchMedia('(prefers-reduced-motion:reduce)').matches;
       tabList[n].focus(); switchView(tabList[n].dataset.view);
     }
   }));
+  // mobile hamburger menu: toggle the dropdown, manage focus + a11y
+  const navToggle=document.getElementById('navToggle'), navMenu=document.getElementById('tabs-nav');
+  if(navToggle && navMenu){
+    let menuOpen=false;
+    const isMobile=()=>matchMedia('(max-width:640px)').matches;
+    const onMenuKey=e=>{ if(e.key==='Escape'){ e.preventDefault(); closeMenu(); } };
+    const onMenuOutside=e=>{ if(!navMenu.contains(e.target) && !navToggle.contains(e.target)) closeMenu(false); };
+    function openMenu(){ if(menuOpen) return; menuOpen=true; navMenu.classList.add('open');
+      navToggle.setAttribute('aria-expanded','true'); navToggle.setAttribute('aria-label','Close menu');
+      document.addEventListener('keydown',onMenuKey); document.addEventListener('mousedown',onMenuOutside);
+      const first=navMenu.querySelector('.tab'); if(first) setTimeout(()=>first.focus(),60); }
+    function closeMenu(focusBtn){ if(!menuOpen) return; menuOpen=false; navMenu.classList.remove('open');
+      navToggle.setAttribute('aria-expanded','false'); navToggle.setAttribute('aria-label','Open menu');
+      document.removeEventListener('keydown',onMenuKey); document.removeEventListener('mousedown',onMenuOutside);
+      if(focusBtn!==false) navToggle.focus(); }
+    navToggle.addEventListener('click',()=>{ menuOpen?closeMenu():openMenu(); });
+    tabs.forEach(t=>t.addEventListener('click',()=>{ if(isMobile()) closeMenu(false); }));
+    addEventListener('resize',()=>{ if(!isMobile() && menuOpen) closeMenu(false); });
+  }
   const initial=(location.hash||'#home').slice(1);
   switchView(document.getElementById('view-'+initial)?initial:'home', false);
   // deep links + back/forward: react to hash changes
@@ -1235,13 +1304,14 @@ const reduce = matchMedia('(prefers-reduced-motion:reduce)').matches;
   const log=document.getElementById('ccLog'), chipsEl=document.getElementById('ccChips'),
         form=document.getElementById('ccForm'), text=document.getElementById('ccText');
   if(!log) return;
-  const launch=document.getElementById('ccLaunch'), panel=document.getElementById('ccPanel'), closeBtn=document.getElementById('ccClose');
+  const launch=document.getElementById('ccLaunch'), panel=document.getElementById('ccPanel'), closeBtn=document.getElementById('ccClose'), backdrop=document.getElementById('ccBackdrop');
   let panelOpen=false;
   function onKey(e){ if(e.key==='Escape') closePanel(); }
   function onOutside(e){ if(panelOpen && !panel.contains(e.target) && !launch.contains(e.target)) closePanel(); }
-  function openPanel(){ if(panelOpen) return; panelOpen=true; panel.hidden=false; launch.classList.add('hidden'); launch.classList.remove('nudge'); launch.setAttribute('aria-expanded','true'); setTimeout(()=>text.focus(),80); document.addEventListener('keydown',onKey); document.addEventListener('mousedown',onOutside); }
-  function closePanel(){ if(!panelOpen) return; panelOpen=false; panel.hidden=true; launch.classList.remove('hidden'); launch.setAttribute('aria-expanded','false'); launch.focus(); document.removeEventListener('keydown',onKey); document.removeEventListener('mousedown',onOutside); }
+  function openPanel(){ if(panelOpen) return; panelOpen=true; panel.hidden=false; if(backdrop){ backdrop.hidden=false; requestAnimationFrame(()=>backdrop.classList.add('show')); } launch.classList.add('hidden'); launch.classList.remove('nudge'); launch.setAttribute('aria-expanded','true'); setTimeout(()=>text.focus(),80); document.addEventListener('keydown',onKey); document.addEventListener('mousedown',onOutside); }
+  function closePanel(){ if(!panelOpen) return; panelOpen=false; panel.hidden=true; if(backdrop){ backdrop.classList.remove('show'); setTimeout(()=>{ if(!panelOpen) backdrop.hidden=true; },260); } launch.classList.remove('hidden'); launch.setAttribute('aria-expanded','false'); launch.focus(); document.removeEventListener('keydown',onKey); document.removeEventListener('mousedown',onOutside); }
   launch.addEventListener('click',openPanel); closeBtn.addEventListener('click',closePanel);
+  if(backdrop) backdrop.addEventListener('click',closePanel);
   launch.classList.add('nudge'); // one-time nudge so it is noticed
   const TIERS={
     strategy:{name:'AI Strategy Sprint',svc:'AI strategy sprint',blurb:'a one to two week sprint to find where AI creates leverage and hand you a roadmap.'},
@@ -1351,7 +1421,9 @@ const reduce = matchMedia('(prefers-reduced-motion:reduce)').matches;
     const sub=(mode==='role'?'Role inquiry from ':'Project inquiry from ')+d.name+(svc?(' ('+svc+')'):'');
     const lines=['Name: '+d.name,'Email: '+d.email,'Company: '+(d.company||'-')];
     if(mode==='role') lines.push('Role / title: '+(d.role||'-')); else lines.push('Project type: '+(d.ptype||'-'),'Budget: '+(d.budget||'-'));
-    lines.push('Timeline: '+(d.timeline||'-'),'','Message:',d.message);
+    lines.push('Timeline: '+(d.timeline||'-'));
+    if(d.artist_discount) lines.push('Artist discount: '+d.artist_discount);
+    lines.push('','Message:',d.message);
     window.location.href='mailto:'+TO+'?subject='+encodeURIComponent(sub)+'&body='+encodeURIComponent(lines.join('\n'));
   }
   // instant per-field validity checks (sage tick fades in the moment a field is valid)
