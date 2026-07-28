@@ -82,22 +82,37 @@
   .navtoggle[aria-expanded="true"] .bars i:nth-child(3){top:6.25px;transform:rotate(-45deg)}
   .navtoggle:focus-visible{outline:3px solid var(--sage);outline-offset:2px;border-radius:8px}
   @media (prefers-reduced-motion:reduce){.navtoggle .bars i{transition:none}}
+  /* mobile drawer nav (resume-style): floating hamburger + scrim + right-side drawer. Hidden on desktop. */
+  .floatbtn{position:fixed;top:calc(14px + env(safe-area-inset-top,0px));right:16px;z-index:1002;display:none;
+    width:46px;height:42px;border:1px solid var(--line);border-radius:7px;background:var(--cream);box-shadow:0 5px 16px rgba(34,28,20,.2);
+    opacity:0;pointer-events:none;transition:opacity .25s;align-items:center;justify-content:center;padding:0}
+  .floatbtn.show{opacity:1;pointer-events:auto}
+  .scrim{position:fixed;inset:0;z-index:1050;background:rgba(34,28,20,.45);opacity:0;pointer-events:none;transition:opacity .25s}
+  .scrim.open{opacity:1;pointer-events:auto}
+  .scrim[hidden]{display:none}
+  .drawer{position:fixed;top:0;right:0;bottom:0;z-index:1060;width:min(310px,82vw);background:var(--card);
+    border-left:1px solid var(--line);box-shadow:-14px 0 40px rgba(34,28,20,.22);overflow-y:auto;
+    transform:translateX(101%);transition:transform .28s cubic-bezier(.4,0,.2,1);
+    padding:calc(20px + env(safe-area-inset-top,0px)) 26px calc(30px + env(safe-area-inset-bottom,0px))}
+  .drawer.open{transform:translateX(0)}
+  .drawerx{background:none;border:none;font-size:34px;line-height:1;color:var(--ink);cursor:pointer;padding:0;margin:0 0 14px auto;display:block}
+  .drawer nav ul{list-style:none;margin:0;padding:0;display:flex;flex-direction:column}
+  .drawer nav a{display:block;text-decoration:none;color:var(--ink);font-family:var(--disp);font-weight:400;
+    text-transform:uppercase;font-size:23px;letter-spacing:.01em;padding:13px 0;border-bottom:1px solid var(--line);cursor:pointer}
+  .drawer nav a:hover,.drawer nav a.active{color:var(--red)}
+  .drawerx:focus-visible,.drawer nav a:focus-visible{outline:3px solid var(--sage);outline-offset:2px}
+  @media (min-width:641px){.floatbtn,.scrim,.drawer{display:none!important}}
   @media (max-width:640px){
+    /* header becomes a relative bar that scrolls with the page (no fixed overlay = no content-above-bar) */
+    header{position:relative;background:transparent;box-shadow:none;transform:none;padding-top:env(safe-area-inset-top,0px);border-bottom:1px solid var(--line)}
     header .wrap{flex-wrap:nowrap;justify-content:space-between;gap:12px}
     .brand{font-size:16px}
-    .navtoggle{display:inline-flex}
-    /* tabs become a slide-down dropdown under the fixed header */
-    .tabs{position:absolute;top:100%;left:0;right:0;flex-direction:column;gap:4px;overflow:auto;
-      background:var(--cream);border-bottom:1px solid var(--line);box-shadow:0 20px 34px -20px rgba(34,28,20,.45);
-      padding:10px clamp(16px,4vw,20px) 14px;max-height:calc(100vh - 58px);
-      visibility:hidden;opacity:0;transform:translateY(-8px);pointer-events:none;
-      transition:opacity .22s ease,transform .22s ease,visibility .22s}
-    .tabs.open{visibility:visible;opacity:1;transform:none;pointer-events:auto}
-    .tab{width:100%;justify-content:flex-start;min-height:46px;font-size:15px;padding:11px 16px}
+    .navtoggle{display:inline-flex;width:46px;height:42px;border:1px solid var(--line);border-radius:7px}
+    .tabs{display:none}
+    .floatbtn{display:inline-flex}
     .contactcard .seg{padding:5px}
     .contactcard .seg button{min-height:44px;display:inline-flex;align-items:center;justify-content:center}
   }
-  @media (max-width:640px) and (prefers-reduced-motion:reduce){.tabs{transition:none}}
 
   /* view switching */
   .view{display:none}
@@ -146,7 +161,7 @@
   .morph-wrap canvas{display:block;width:100%;height:100%}
   /* mobile: fit the HOME hero within one phone viewport */
   @media (max-width:640px){
-    #view-home > .wrap{padding-top:calc(82px + env(safe-area-inset-top,0px))!important;padding-bottom:calc(20px + env(safe-area-inset-bottom,0px));min-height:calc(100vh - 54px);min-height:calc(100svh - 54px);display:flex;flex-direction:column;justify-content:center;box-sizing:border-box}
+    #view-home > .wrap{padding-top:16px!important;padding-bottom:14px;min-height:calc(100vh - 124px);min-height:calc(100svh - 124px - env(safe-area-inset-top,0px) - env(safe-area-inset-bottom,0px));display:flex;flex-direction:column;justify-content:center;box-sizing:border-box}
     .hero{gap:16px}
     .hero-copy h1{font-size:35px}
     .hero-copy .lede{margin-top:14px;font-size:15px;line-height:1.45;max-width:40ch}
@@ -456,12 +471,12 @@
   #view-about .panel p{max-width:58ch;color:rgba(244,235,211,.74);font-size:17px}
   /* mobile: fit the ABOUT panel within one phone viewport */
   @media (max-width:640px){
-    #view-about .viewpad{padding-top:calc(82px + env(safe-area-inset-top,0px));padding-bottom:calc(20px + env(safe-area-inset-bottom,0px));min-height:calc(100vh - 54px);min-height:calc(100svh - 54px);display:flex;flex-direction:column;justify-content:center;box-sizing:border-box}
+    #view-about .viewpad{padding-top:16px;padding-bottom:14px;min-height:calc(100vh - 124px);min-height:calc(100svh - 124px - env(safe-area-inset-top,0px) - env(safe-area-inset-bottom,0px));display:flex;flex-direction:column;justify-content:center;box-sizing:border-box}
     #view-about .panel{padding:20px 20px}
     #view-about .big{font-size:20px;line-height:1.22;margin:10px 0}
-    #view-about .panel p{font-size:14px;line-height:1.45}
+    #view-about .panel p{font-size:14px;line-height:1.42}
     #view-about .about-grid{gap:12px}
-    #view-about .about-portrait{max-width:140px;aspect-ratio:1/1}
+    #view-about .about-portrait{max-width:124px;aspect-ratio:1/1}
   }
 
   /* CONTACT */
@@ -545,6 +560,7 @@
   .contactcard .fine.ok{color:#3f5730;font-weight:600}
   .contactcard .fine.err{color:var(--red);font-weight:600}
   footer{padding:30px 0 40px;font-size:13px;color:var(--ink-soft);display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px;border-top:1px solid var(--line)}
+  @media (max-width:640px){footer{padding:16px 0 calc(18px + env(safe-area-inset-bottom,0px))}}
 
   /* tactile push-button on the FILLED red CTAs (brand colors; press-down, no hover lift) */
   .btn-primary,.tier.feat .cta,.contactcard .btn,.cc-send{
@@ -595,6 +611,21 @@
     </nav>
   </div>
 </header>
+
+<!-- mobile-only (<=640) resume-style drawer nav: floating hamburger + scrim + right drawer -->
+<button class="navtoggle floatbtn" id="navFloat" type="button" aria-expanded="false" aria-controls="navDrawer" aria-label="Open menu"><span class="bars" aria-hidden="true"><i></i><i></i><i></i></span></button>
+<div class="scrim" id="navScrim" hidden></div>
+<aside class="drawer" id="navDrawer" aria-hidden="true" aria-label="Menu">
+  <button class="drawerx" id="navDrawerX" type="button" aria-label="Close menu">&times;</button>
+  <nav aria-label="Sections"><ul>
+    <li><a href="#home" data-view="home" class="active">Home</a></li>
+    <li><a href="#services" data-view="services">Services</a></li>
+    <li><a href="#work" data-view="work">Work</a></li>
+    <li><a href="#skills" data-view="skills">Skills</a></li>
+    <li><a href="#about" data-view="about">About</a></li>
+    <li><a href="#contact" data-view="contact">Contact</a></li>
+  </ul></nav>
+</aside>
 
 <main id="top">
 
@@ -965,6 +996,7 @@ const reduce = matchMedia('(prefers-reduced-motion:reduce)').matches;
     views.forEach(v=>v.classList.remove('active'));
     target.classList.add('active');
     tabs.forEach(t=>{const on=t.dataset.view===name; t.classList.toggle('active',on); t.setAttribute('aria-selected',on?'true':'false');});
+    document.querySelectorAll('#navDrawer a[data-view]').forEach(a=>a.classList.toggle('active',a.dataset.view===name));
     window.scrollTo({top:0,behavior:'auto'});
     revealIn(target); runCounts(target);
     if(push!==false){ try{history.replaceState(null,'','#'+name);}catch(e){} }
@@ -984,24 +1016,30 @@ const reduce = matchMedia('(prefers-reduced-motion:reduce)').matches;
       tabList[n].focus(); switchView(tabList[n].dataset.view);
     }
   }));
-  // mobile hamburger menu: toggle the dropdown, manage focus + a11y
-  const navToggle=document.getElementById('navToggle'), navMenu=document.getElementById('tabs-nav');
-  if(navToggle && navMenu){
-    let menuOpen=false;
-    const isMobile=()=>matchMedia('(max-width:640px)').matches;
-    const onMenuKey=e=>{ if(e.key==='Escape'){ e.preventDefault(); closeMenu(); } };
-    const onMenuOutside=e=>{ if(!navMenu.contains(e.target) && !navToggle.contains(e.target)) closeMenu(false); };
-    function openMenu(){ if(menuOpen) return; menuOpen=true; navMenu.classList.add('open');
-      navToggle.setAttribute('aria-expanded','true'); navToggle.setAttribute('aria-label','Close menu');
-      document.addEventListener('keydown',onMenuKey); document.addEventListener('mousedown',onMenuOutside);
-      const first=navMenu.querySelector('.tab'); if(first) setTimeout(()=>first.focus(),60); }
-    function closeMenu(focusBtn){ if(!menuOpen) return; menuOpen=false; navMenu.classList.remove('open');
-      navToggle.setAttribute('aria-expanded','false'); navToggle.setAttribute('aria-label','Open menu');
-      document.removeEventListener('keydown',onMenuKey); document.removeEventListener('mousedown',onMenuOutside);
-      if(focusBtn!==false) navToggle.focus(); }
-    navToggle.addEventListener('click',()=>{ menuOpen?closeMenu():openMenu(); });
-    tabs.forEach(t=>t.addEventListener('click',()=>{ if(isMobile()) closeMenu(false); }));
-    addEventListener('resize',()=>{ if(!isMobile() && menuOpen) closeMenu(false); });
+  // mobile drawer nav (resume-style): menubtn + floating hamburger open a right-side drawer + scrim
+  const navBtn=document.getElementById('navToggle'), navFloat=document.getElementById('navFloat'),
+        navDrawer=document.getElementById('navDrawer'), navScrim=document.getElementById('navScrim'),
+        navDrawerX=document.getElementById('navDrawerX'), navHeader=document.querySelector('header');
+  if(navBtn && navDrawer && navScrim){
+    let drawerOpen=false;
+    const drawerLinks=[...navDrawer.querySelectorAll('a[data-view]')];
+    const onDrawerKey=e=>{ if(e.key==='Escape'){ e.preventDefault(); setDrawer(false); navBtn.focus(); } };
+    function setDrawer(open){
+      drawerOpen=open;
+      navDrawer.classList.toggle('open',open); navScrim.classList.toggle('open',open);
+      navBtn.setAttribute('aria-expanded',open); navFloat.setAttribute('aria-expanded',open); navDrawer.setAttribute('aria-hidden',!open);
+      if(open){ navScrim.hidden=false; document.body.style.overflow='hidden'; document.addEventListener('keydown',onDrawerKey);
+        setTimeout(()=>{ (drawerLinks.find(a=>a.classList.contains('active'))||drawerLinks[0]||navDrawerX).focus(); },60); }
+      else{ document.body.style.overflow=''; document.removeEventListener('keydown',onDrawerKey); setTimeout(()=>{ if(!drawerOpen) navScrim.hidden=true; },260); }
+    }
+    navBtn.addEventListener('click',()=>setDrawer(!drawerOpen));
+    navFloat.addEventListener('click',()=>setDrawer(!drawerOpen));
+    navDrawerX.addEventListener('click',()=>{ setDrawer(false); navBtn.focus(); });
+    navScrim.addEventListener('click',()=>setDrawer(false));
+    drawerLinks.forEach(a=>a.addEventListener('click',e=>{ e.preventDefault(); switchView(a.dataset.view); setDrawer(false); }));
+    const onNavScroll=()=>{ const y=window.scrollY||document.documentElement.scrollTop||document.body.scrollTop||0;
+      navFloat.classList.toggle('show', matchMedia('(max-width:640px)').matches && !drawerOpen && y > navHeader.offsetHeight + 30); };
+    window.addEventListener('scroll',onNavScroll,{passive:true,capture:true}); onNavScroll();
   }
   const initial=(location.hash||'#home').slice(1);
   switchView(document.getElementById('view-'+initial)?initial:'home', false);
