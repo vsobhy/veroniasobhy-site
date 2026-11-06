@@ -1,7 +1,10 @@
 # veroniasobhy.com
 
-Personal portfolio for Veronia Sobhy. Static site: a single self-contained `index.html`
-(styles and the portrait are inlined, no build step, no dependencies).
+Personal site for Veronia Sobhy. Static site, no build step, no dependencies.
+
+`index.html` is the artist-buddy homepage. `resume.html` is the same offer as a long page.
+The previous builder-and-operator site is preserved at `dev/index.html` (`/dev`) and
+`dev/resume.html` (`/dev/resume`).
 
 ## Deploy
 Vercel, framework preset **Other**, no build command, output directory = repo root.
