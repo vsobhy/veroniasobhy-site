@@ -1,3 +1,6 @@
 .vercel
 _gen*.html
 SERVICES-CONTENT.md
+
+.playwright-mcp/
+v2-*.png
