@@ -355,6 +355,21 @@
   .case .shot{position:relative;overflow:hidden;background:var(--ink);min-height:240px}
   .case .shot img{width:100%;height:100%;object-fit:cover;object-position:top center;display:block;transition:transform .8s cubic-bezier(.2,.7,.2,1)}
   .case:hover .shot img{transform:scale(1.05)}
+  /* embedded site preview: desktop page, scaled into the card */
+  .preview{display:flex;flex-direction:column;height:100%;min-height:100%;background:#14110b}
+  .pvbar{display:flex;align-items:center;gap:8px;padding:9px 12px;background:#221c14;color:var(--cream);flex:none}
+  .pvdots{display:flex;gap:5px;flex:none}
+  .pvdots i{width:8px;height:8px;border-radius:50%;background:#5c5346}
+  .pvdots i:first-child{background:var(--red)}
+  .pvurl{font-size:12px;letter-spacing:.01em;opacity:.85;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;min-width:0}
+  .pvopen{margin-left:auto;flex:none;font-size:12px;font-weight:700;color:var(--cream);text-decoration:none;border-bottom:1.5px solid var(--red);padding-bottom:1px}
+  .pvopen:hover{color:var(--red)}
+  .pvstage{position:relative;flex:1;aspect-ratio:16/10;overflow:hidden;background:#111}
+  .pvscale{position:absolute;top:0;left:0;width:1280px;height:900px;transform-origin:top left}
+  .pvscale img,.pvscale iframe{width:1280px;height:900px;border:0;display:block;background:#111}
+  .pvscale iframe{position:absolute;inset:0;pointer-events:none}
+  .pvhit{position:absolute;inset:0;z-index:2}
+  .pvhit:focus-visible{outline:3px solid var(--sage);outline-offset:-3px}
   /* clickable screenshot -> live site: soft overlay + 'Visit site' on hover/focus */
   a.shot-link{display:block;cursor:pointer}
   .shot-link .visit{position:absolute;inset:0;display:flex;align-items:flex-end;gap:7px;padding:16px;
@@ -702,30 +717,97 @@
   <section class="view" id="view-work" role="tabpanel" aria-label="Work">
     <div class="wrap viewpad">
       <div class="sechead reveal"><span class="num">02</span><h2 class="sec">Work</h2></div>
-      <p class="lead reveal">Two sites you can open. The artists I manage aren't named here.</p>
+      <p class="lead reveal">Three sites you can look at. The jobs are under them.</p>
       <div class="case-list">
         <article class="case reveal">
-          <a class="shot shot-link" href="https://www.hrmny.pro/" target="_blank" rel="noopener" aria-label="Visit hrmny.pro (opens in a new tab)"><img src="work/hrmny.jpg" alt="HRMNY, a sync licensing site for independent artists" loading="lazy"><span class="visit">Visit site <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17L17 7M8 7h9v9"/></svg></span></a>
+          <div class="preview">
+            <div class="pvbar"><span class="pvdots" aria-hidden="true"><i></i><i></i><i></i></span><span class="pvurl">app.therecording.club</span><a class="pvopen" href="https://app.therecording.club" target="_blank" rel="noopener">Open</a></div>
+            <div class="pvstage">
+              <div class="pvscale"><img src="work/preview-trc.jpg" width="1280" height="900" alt="The Recording Club booking app. Book a studio, a class, or the calendar."></div>
+              <a class="pvhit" href="https://app.therecording.club" target="_blank" rel="noopener" aria-label="Open app.therecording.club"></a>
+            </div>
+          </div>
           <div class="body">
-            <div class="top"><span class="role">Sync</span><span class="live">Live</span></div>
-            <h3>HRMNY</h3>
-            <p class="blurb">A site I started so artists can license their own music for sync and ads, and keep the fee. Someone making a video or a commercial licenses a song. The artist keeps what they earn. It's live. I run it.</p>
-            <div class="linkline"><a href="https://www.hrmny.pro/" target="_blank" rel="noopener">hrmny.pro</a></div>
+            <div class="top"><span class="role">Booking app</span><span class="live">Live</span></div>
+            <h3>The Recording Club</h3>
+            <p class="blurb">Members book the studios here. Rooms, classes, the calendar. I built the app.</p>
+            <div class="linkline"><a href="https://app.therecording.club" target="_blank" rel="noopener">app.therecording.club</a></div>
           </div>
         </article>
 
         <article class="case reveal">
-          <a class="shot shot-link" href="https://mohinidey.com" target="_blank" rel="noopener" aria-label="Visit mohinidey.com (opens in a new tab)"><img src="work/mohini.jpg" alt="Mohini Dey artist site" loading="lazy"><span class="visit">Visit site <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17L17 7M8 7h9v9"/></svg></span></a>
+          <div class="preview">
+            <div class="pvbar"><span class="pvdots" aria-hidden="true"><i></i><i></i><i></i></span><span class="pvurl">mohinidey.com</span><a class="pvopen" href="https://mohinidey.com" target="_blank" rel="noopener">Open</a></div>
+            <div class="pvstage">
+              <div class="pvscale">
+                <img src="work/preview-mohini.jpg" width="1280" height="900" alt="Mohini Dey's site, with the album, the merch, and the tour.">
+                <iframe src="https://mohinidey.com" title="Live preview of mohinidey.com" loading="lazy" tabindex="-1" scrolling="no"></iframe>
+              </div>
+              <a class="pvhit" href="https://mohinidey.com" target="_blank" rel="noopener" aria-label="Open mohinidey.com"></a>
+            </div>
+          </div>
           <div class="body">
             <div class="top"><span class="role">Artist site</span><span class="live">Live</span></div>
             <h3>Mohini Dey</h3>
-            <p class="blurb">Site for touring bassist Mohini Dey. The album, the shows, the merch. The store runs on Shopify, so pre-orders worked on day one. Live, and it's selling.</p>
+            <p class="blurb">Her site. The album, the shows, the merch. The store runs on Shopify, so pre-orders worked on day one.</p>
             <div class="linkline"><a href="https://mohinidey.com" target="_blank" rel="noopener">mohinidey.com</a></div>
+          </div>
+        </article>
+
+        <article class="case reveal">
+          <div class="preview">
+            <div class="pvbar"><span class="pvdots" aria-hidden="true"><i></i><i></i><i></i></span><span class="pvurl">hrmny.pro</span><a class="pvopen" href="https://www.hrmny.pro/" target="_blank" rel="noopener">Open</a></div>
+            <div class="pvstage">
+              <div class="pvscale"><img src="work/preview-hrmny.jpg" width="1280" height="900" alt="HRMNY, where an artist licenses a song and keeps the fee."></div>
+              <a class="pvhit" href="https://www.hrmny.pro/" target="_blank" rel="noopener" aria-label="Open hrmny.pro"></a>
+            </div>
+          </div>
+          <div class="body">
+            <div class="top"><span class="role">Sync</span><span class="live">Live</span></div>
+            <h3>HRMNY</h3>
+            <p class="blurb">Artists license a song for a video or a commercial and keep the fee. I built this for that.</p>
+            <div class="linkline"><a href="https://www.hrmny.pro/" target="_blank" rel="noopener">hrmny.pro</a></div>
           </div>
         </article>
       </div>
 
-      <p class="alsobuilt reveal">I also work with artists I don't name. One of them I stay on with. For another, I fixed the site and the links so the new song and the next show were easy to find. Older stuff is at <a href="/dev">veroniasobhy.com/dev</a>.</p>
+      <h3 class="subhead reveal">Experience</h3>
+      <p class="lead reveal">Label-side, partnerships, and the studio.</p>
+      <div class="exp-row reveal">
+        <div class="when">Since Jan 2026<br>Santa Monica</div>
+        <div>
+          <h3>The Recording Club</h3>
+          <div class="title">Director of Strategy &amp; Business Development</div>
+          <ul>
+            <li>Membership grew 125% in five months</li>
+            <li>Apple Music, JBL, and Sony</li>
+            <li>Built the booking app members use</li>
+          </ul>
+        </div>
+      </div>
+      <div class="exp-row reveal">
+        <div class="when">2020 to 2021<br>Los Angeles</div>
+        <div>
+          <h3>Secretly Group</h3>
+          <div class="title">Digital Advertising &amp; A&amp;R</div>
+          <ul>
+            <li>Phoebe Bridgers, Mitski, and Bon Iver</li>
+          </ul>
+        </div>
+      </div>
+      <div class="exp-row reveal">
+        <div class="when">2022 to 2025<br>Los Angeles</div>
+        <div>
+          <h3>TikTok</h3>
+          <div class="title">Brand Partnerships Manager</div>
+          <ul>
+            <li>Led an activation with Doja Cat and Paris Hilton</li>
+            <li>Promoted twice</li>
+          </ul>
+        </div>
+      </div>
+
+      <p class="alsobuilt reveal">Day-to-day artist work stays unnamed. The longer page is the <a href="/resume">resume</a>.</p>
     </div>
   </section>
 
@@ -896,6 +978,7 @@ const reduce = matchMedia('(prefers-reduced-motion:reduce)').matches;
     if(push!==false){ try{history.replaceState(null,'','#'+name);}catch(e){} }
     if(name==='about' && window.__htResize) window.__htResize();
     if(name==='home' && window.__morphResize) window.__morphResize();
+    requestAnimationFrame(()=>{ if(window.__fitPreviews) window.__fitPreviews(); });
   }
   window.__switchView = switchView;
   document.querySelectorAll('[data-view]').forEach(el=>{
@@ -935,6 +1018,14 @@ const reduce = matchMedia('(prefers-reduced-motion:reduce)').matches;
       navFloat.classList.toggle('show', matchMedia('(max-width:640px)').matches && !drawerOpen && y > navHeader.offsetHeight + 30); };
     window.addEventListener('scroll',onNavScroll,{passive:true,capture:true}); onNavScroll();
   }
+  window.__fitPreviews=function(){
+    document.querySelectorAll('.pvstage').forEach(stage=>{
+      const sc=stage.querySelector('.pvscale'); if(!sc) return;
+      const w=stage.clientWidth; if(!w) return;
+      sc.style.transform='scale('+(w/1280)+')';
+    });
+  };
+  window.addEventListener('resize',window.__fitPreviews);
   const initial=(location.hash||'#home').slice(1);
   switchView(document.getElementById('view-'+initial)?initial:'home', false);
   // deep links + back/forward: react to hash changes

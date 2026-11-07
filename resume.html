@@ -126,6 +126,16 @@ section{padding:58px 0;border-bottom:1px solid var(--line)}
 .shotbar i:first-child{background:var(--tomato);opacity:.85}
 .shoturl{margin-left:9px;font-family:var(--serif);font-size:11.5px;color:var(--ink2);letter-spacing:.02em;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
 .shot img{display:block;width:100%;height:auto}
+.shot.preview{display:flex;flex-direction:column}
+.shot.preview:hover{transform:none;box-shadow:5px 5px 0 rgba(33,30,22,.10)}
+.pvstage{position:relative;aspect-ratio:16/10;overflow:hidden;background:#14110b}
+.pvscale{position:absolute;top:0;left:0;width:1280px;height:900px;transform-origin:top left}
+.preview .pvscale img,.preview .pvscale iframe{width:1280px;height:900px;max-width:none;height:900px;border:0;display:block}
+.preview .pvscale iframe{position:absolute;inset:0;pointer-events:none}
+.pvhit{position:absolute;inset:0;z-index:2}
+.pvhit:focus-visible{outline:3px solid var(--sage);outline-offset:-3px}
+.shotbar .pvopen{margin-left:auto;color:var(--tomato);font-weight:700;font-size:12px;text-decoration:none}
+.shotbar .pvopen:hover{text-decoration:underline}
 .plate{display:grid;place-items:center;min-height:240px;background:#211E16;color:var(--oat);padding:40px 24px;text-align:center}
 .plate .mk{font-family:var(--disp);font-weight:800;text-transform:uppercase;letter-spacing:-.03em;font-size:clamp(40px,6vw,64px);line-height:.88}
 .plate .sub{margin-top:14px;font-family:var(--serif);font-size:12px;letter-spacing:.18em;text-transform:uppercase;color:var(--sage)}
@@ -249,34 +259,58 @@ footer{padding:24px 0 44px;color:var(--faint);font-family:var(--serif);font-size
   <section id="work">
     <div class="head"><span class="no">02</span><h2>Selected work</h2></div>
     <div class="work">
-      <article class="proj flag">
-        <a class="shot" href="https://www.hrmny.pro/" target="_blank" rel="noopener" aria-label="Open hrmny.pro in a new tab">
-          <span class="shotbar"><i></i><i></i><i></i><span class="shoturl">hrmny.pro</span></span>
-          <img src="work/hrmny.jpg" width="1600" height="1075" alt="HRMNY, a sync licensing site for independent artists" loading="lazy">
-        </a>
+      <article class="proj">
+        <div class="shot preview">
+          <span class="shotbar"><i></i><i></i><i></i><span class="shoturl">app.therecording.club</span><a class="pvopen" href="https://app.therecording.club" target="_blank" rel="noopener">Open</a></span>
+          <div class="pvstage">
+            <div class="pvscale"><img src="work/preview-trc.jpg" width="1280" height="900" alt="The Recording Club booking app. Book a studio, a class, or the calendar."></div>
+            <a class="pvhit" href="https://app.therecording.club" target="_blank" rel="noopener" aria-label="Open app.therecording.club"></a>
+          </div>
+        </div>
         <div class="projbody">
-          <span class="flagpin">Sync</span>
-          <h3>HRMNY</h3>
-          <div class="pmeta"><span class="role">Sync</span><br><a href="https://www.hrmny.pro/" target="_blank" rel="noopener">hrmny.pro</a></div>
-          <p>A site I started so artists can license their own music for sync and ads, and keep the fee. Someone making a video or a commercial licenses a song. The artist keeps what they earn. It's live. I run it.</p>
-          <div class="tags"><span class="tg">Sync</span><span class="tg">Commercials</span><span class="tg">Artists keep the fee</span></div>
+          <h3>The Recording Club</h3>
+          <div class="pmeta"><span class="role">Booking app</span><br><a href="https://app.therecording.club" target="_blank" rel="noopener">app.therecording.club</a></div>
+          <p>Members book the studios here. Rooms, classes, the calendar. I built the app.</p>
+          <div class="tags"><span class="tg">Booking</span><span class="tg">Studios</span><span class="tg">Live</span></div>
         </div>
       </article>
 
       <article class="proj">
-        <a class="shot" href="https://mohinidey.com" target="_blank" rel="noopener" aria-label="Open mohinidey.com in a new tab">
-          <span class="shotbar"><i></i><i></i><i></i><span class="shoturl">mohinidey.com</span></span>
-          <img src="work/mohini.jpg" width="1600" height="1075" alt="Live artist site for bassist Mohini Dey, with a bold hero and merch pre-orders" loading="lazy">
-        </a>
+        <div class="shot preview">
+          <span class="shotbar"><i></i><i></i><i></i><span class="shoturl">mohinidey.com</span><a class="pvopen" href="https://mohinidey.com" target="_blank" rel="noopener">Open</a></span>
+          <div class="pvstage">
+            <div class="pvscale">
+              <img src="work/preview-mohini.jpg" width="1280" height="900" alt="Mohini Dey's site, with the album, the merch, and the tour.">
+              <iframe src="https://mohinidey.com" title="Live preview of mohinidey.com" loading="lazy" tabindex="-1" scrolling="no"></iframe>
+            </div>
+            <a class="pvhit" href="https://mohinidey.com" target="_blank" rel="noopener" aria-label="Open mohinidey.com"></a>
+          </div>
+        </div>
         <div class="projbody">
           <h3>Mohini Dey</h3>
           <div class="pmeta"><span class="role">Artist site</span><br><a href="https://mohinidey.com" target="_blank" rel="noopener">mohinidey.com</a></div>
-          <p>Site for touring bassist Mohini Dey. The album, the shows, the merch. The store runs on Shopify, so pre-orders worked on day one. Live, and it's selling.</p>
-          <div class="tags"><span class="tg">Album</span><span class="tg">Merch</span><span class="tg">Live</span></div>
+          <p>Her site. The album, the shows, the merch. The store runs on Shopify, so pre-orders worked on day one.</p>
+          <div class="tags"><span class="tg">Album</span><span class="tg">Merch</span><span class="tg">Tour</span></div>
+        </div>
+      </article>
+
+      <article class="proj">
+        <div class="shot preview">
+          <span class="shotbar"><i></i><i></i><i></i><span class="shoturl">hrmny.pro</span><a class="pvopen" href="https://www.hrmny.pro/" target="_blank" rel="noopener">Open</a></span>
+          <div class="pvstage">
+            <div class="pvscale"><img src="work/preview-hrmny.jpg" width="1280" height="900" alt="HRMNY, where an artist licenses a song and keeps the fee."></div>
+            <a class="pvhit" href="https://www.hrmny.pro/" target="_blank" rel="noopener" aria-label="Open hrmny.pro"></a>
+          </div>
+        </div>
+        <div class="projbody">
+          <h3>HRMNY</h3>
+          <div class="pmeta"><span class="role">Sync</span><br><a href="https://www.hrmny.pro/" target="_blank" rel="noopener">hrmny.pro</a></div>
+          <p>Artists license a song for a video or a commercial and keep the fee. I built this for that.</p>
+          <div class="tags"><span class="tg">Sync</span><span class="tg">Commercials</span><span class="tg">Artists keep the fee</span></div>
         </div>
       </article>
     </div>
-    <p class="sub-note" style="margin-top:8px">I also work with artists I don't name. One of them I stay on with. For another, I fixed the site and the links so the new song and the next show were easy to find. Older projects are on the <a href="/dev/resume" style="color:var(--tomato);font-weight:700;text-decoration:none">previous page</a>.</p>
+    <p class="sub-note" style="margin-top:8px">Day-to-day artist work stays unnamed.</p>
   </section>
 
   <section id="experience">
@@ -376,6 +410,15 @@ if(vp){ vp.addEventListener('error',function(){ this.remove(); }); if(vp.complet
   x.addEventListener('click',function(){ set(false); });
   s.addEventListener('click',function(){ set(false); });
   d.addEventListener('click',function(e){ if(e.target.tagName==='A') set(false); });
+  function fitPreviews(){
+    document.querySelectorAll('.pvstage').forEach(function(stage){
+      var sc=stage.querySelector('.pvscale'); if(!sc) return;
+      var w=stage.clientWidth; if(!w) return;
+      sc.style.transform='scale('+(w/1280)+')';
+    });
+  }
+  fitPreviews();
+  window.addEventListener('resize',fitPreviews);
   document.addEventListener('keydown',function(e){ if(e.key==='Escape') set(false); });
 })();
 </script>
